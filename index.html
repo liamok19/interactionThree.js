@@ -50,6 +50,10 @@
         var geometry = new THREE.BoxGeometry(1, 1, 1 );
         var material = new THREE.MeshLambertMaterial({color: 0xF7F7F7});
 
+        const geometryCone = new THREE.ConeGeometry( 1, 5, 15 );
+        const materialCone = new THREE.MeshBasicMaterial( {color: 0xe5d0bf } );
+        const cone = new THREE.Mesh( geometryCone, materialCone );
+
         meshX = -10;
         for (var i = 0; i<15; i++){
                 var mesh = new THREE.Mesh(geometry, material);
@@ -59,24 +63,25 @@
                 scene.add(mesh);
                 meshX+=1;
         }
-        // mesh.position.set(1,1,.5);
+        cone.position.set(4,-1,-.5);
                     //extra shape i payed with
                     // meshS.position.set(-4,-4,-6);
 
                     // specify the position set by focusin on specific axis.
                     // mesh.position.x = 2;
-                    // mesh.position.y = 1;
+        // cone.position.y = -1;
                     // mesh.position.z = .5;
                     // meshS.position.x = -4;
                     // meshS.position.y = -4;
                     // meshS.position.z = -6;
 
                     //rotation and scale sets to the mesh.
-                    // mesh.rotation.set(45,0,0);
+        cone.rotation.set(0,100,280);
                     // mesh.scale.set(1,2,3);
 
         // scene.add(mesh);
         // scene.add(meshS);
+        scene.add( cone );
 
         var light = new THREE.PointLight(0xFFFFFF, 1, 1000)
         light.position.set(0, 0, 0);
@@ -114,6 +119,9 @@
                     this.tl.to(intersects[i].object.rotation, .5, {y: Math.PI*1, ease: Expo.easeOut}, "=-1.5")
             }
         }
+
+        // cone.rotation.y += 0.01;
+
 
         render();
 
