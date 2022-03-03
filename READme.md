@@ -24,7 +24,7 @@
 
 ## Final Look
 # Usage
-<img src='./assets/images/threejs.gif' alt="three.js" >
+<img src='./assets/threejs.gif' alt="three.js" >
 
 
 
